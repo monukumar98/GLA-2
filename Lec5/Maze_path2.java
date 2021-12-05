@@ -11,7 +11,10 @@ public class Maze_path2 {
 
 	public static void mazepath(int cc, int cr, boolean[][] maze) {
          if(cc==maze[0].length-1 && cr==maze.length-1 ) {
+        	 maze[cr][cc]=true;
         	 Display(maze);
+        	 maze[cr][cc]=false;
+        	 return;
          }
 		
 		
@@ -25,6 +28,7 @@ public class Maze_path2 {
 			mazepath(cc + c[i], cr + r[i], maze);
 
 		}
+		maze[cr][cc] = false;
 
 	}
 
