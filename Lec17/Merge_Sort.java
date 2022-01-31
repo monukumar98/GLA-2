@@ -23,7 +23,9 @@ public class Merge_Sort {
 
 	class Solution {
 		public ListNode sortList(ListNode head) {
-
+			if (head == null || head.next == null) {
+				return head;
+			}
 			ListNode midnode = Mid(head);
 			ListNode midnext = midnode.next;
 			midnode.next = null;
@@ -32,6 +34,7 @@ public class Merge_Sort {
 			return mergeTwoLists(l1, l2);
 
 		}
+
 		public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
 			ListNode Dummy = new ListNode();
 			ListNode ans = Dummy;
@@ -60,7 +63,7 @@ public class Merge_Sort {
 		public ListNode Mid(ListNode head) {
 			ListNode slow = head;
 			ListNode fast = head;
-			while (fast != null && fast.next != null) {
+			while (fast.next!= null && fast.next.next != null) {
 
 				fast = fast.next.next;
 				slow = slow.next;
